@@ -1,0 +1,33 @@
+<div data-role="content">   
+    <div class='inset'>
+        <ul data-nativedroid-plugin='cards' style="background-color: #0073AE;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);color:white;list-style:none">
+            <li data-cards-type='text'>
+                <h2>Ingrese su Mensaje</h2>
+            </li>
+        </ul>
+    </div>
+    <form data-ajax="false" action="<?php echo $this->action; ?>"  method="post" Enctype="multipart/form-data">
+        <ul data-role="listview" data-inset="true">
+            <li data-role="fieldcontain">
+                <label for="name2b">Numero de destino :</label>
+                <input onKeyUp="maximo(this, 9);" onKeyDown="maximo(this, 9);" type="number" value="<?php echo $this->numeroDestino ?>" name="numeroDestino" id="inputDate" pattern="[0-9]*" value="" data-clear-btn="true" placeholder="ingrese el numero...">
+            </li>
+            <li data-role="fieldcontain">
+                <label for="textarea2b">Mensaje :<span class="nchar"> (max. 80 caracteres)</span></label>
+                <textarea  onKeyUp="maximo(this, 80);" onKeyDown="maximo(this, 80);" cols="40" rows="8" name="dedicatoria" id="textarea2b" placeholder="escriba la dedicatoria.."><?php echo $this->dedicatoria ?></textarea>
+            </li>
+            <li>
+                <button style="background-color: #FF6702;color:white" type="submit" ><i class='lIcon fa fa-check'></i>Aceptar</button>
+            </li>
+        </ul>
+    </form>
+</div>
+<script>
+    function maximo(campo, limite) {
+        if (campo.value.length >= limite) {
+            campo.value = campo.value.substring(0, limite);
+        }
+    }
+</script>

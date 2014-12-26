@@ -1,0 +1,50 @@
+<div data-role="content"> 
+    <br>
+    <div class='inset'>
+        <h2 style="color: black">Datos de envio</h2> 
+<!--        <ul data-nativedroid-plugin='cards' style="background-color: #0073AE;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);color:white;list-style:none">
+            <li data-cards-type='text'>
+                <h2>Resumen de la dedicatoria</h2>
+            </li>
+        </ul>-->
+        <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+            <li><a href="#" >
+                   <?php
+                   $nombre_fichero = APPLICATION_PATH . '/../public/dinamic/fulltracks/basico360/musica/' . $this->catalogo . '.jpg';
+                   if (file_exists($nombre_fichero)) {
+                       ?>
+                        <img 
+                            src="<?php echo DINAMIC_URL ?>fulltracks/basico360/musica/<?= $this->catalogo ?>.jpg" ><?php } else {
+                       ?>
+                        <img src="<?php echo DINAMIC_URL ?>fulltracks/basico360/musica/default.gif"  />
+                    <?php }
+                    ?>
+                    <h2><?= strtoupper($this->tema) ?></h2>
+                    <p><?= strtoupper($this->artista) ?></p>
+                      <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                </a>
+            </li>
+        </ul>
+        <ul data-nativedroid-plugin='cards' style="background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);color:black ">
+            <li data-cards-type='text' style="list-style:none">
+                <h2>Numero de destino</h2>
+                <p><?php echo $this->numeroDestino ?></p>
+                <h2>Mensaje</h2>
+                <p><?php echo $this->dedicatoria ?></p>
+                
+            </li>
+        </ul>
+    </div>
+    <form data-ajax="false" action="<?php echo $this->action; ?>"  method="post" Enctype="multipart/form-data">
+        <ul data-role="listview" data-inset="true">
+            <li>
+                 <input type="hidden" value="2"  name="mensaje"/>
+                <button style="background-color: #FF6702;color:white" type="submit" ><i class='lIcon fa fa-check'></i>Enviar</button>
+            </li>
+        </ul>
+    </form>
+</div>

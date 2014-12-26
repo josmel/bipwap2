@@ -1,0 +1,59 @@
+<div data-role="content">   
+    <br>
+    <div class='inset'>
+        <div> 
+            <img width="100%"   src="<?php echo STATIC_URL ?>css/jqueryMobile/banner_dedicatorias_nextel2.gif">
+        </div>
+        <!-- <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+             <li><a href="#" style="color:white;background-color: #FF6702;">
+        <?php
+        $nombre_fichero = APPLICATION_PATH . '/../public/dinamic/fulltracks/basico360/musica/' . $this->catalogo . '.jpg';
+        if (file_exists($nombre_fichero)) {
+            ?>
+                                 <img 
+                                     src="<?php echo DINAMIC_URL ?>fulltracks/basico360/musica/<?= $this->catalogo ?>.jpg"  width="150" height="150"><?php } else {
+            ?>
+                                 <img src="<?php echo DINAMIC_URL ?>fulltracks/basico360/musica/default.gif" width="150" height="150" border="0" />
+         
+        <?php }
+        ?>
+                     <h2><?= strtoupper($this->tema) ?></h2>
+                     <p><?= $this->artista ?></p>
+                     <p class="ui-li-aside"><strong></strong></p>
+                 </a>
+             </li>
+         </ul>-->
+        <div class='message info'>
+            <i class='fa fa-lightbulb-o' style="color: white"></i>
+            <!--<p style="color: white">Dando Click en Aceptar, te suscribiras para dedicar las canciones que deseas y la 1 era es de REGALO, luego costo S/ 5.00 por dedicatoria</p>-->
+            <p style="text-align:justify;color: white">Aceptas suscribirte al servicio de DEDICATORIAS ENTEL?. 
+                Costo por suscripcion S/. 5.00 .La primera dedicatoria es de regalo.  
+                Costo por dedicatoria a demanda S/. 2.50 .</p>
+        </div>
+    </div>
+    <!----------------TONOS------------------------------------->
+    <?php if ($this->perfil == 1) {
+        ?>
+        <td class="artist" style="background-color: orange" >
+            <div class="artist-text">
+                <div class="title-img">
+                    <a class="text-title" style="background-color: orange;color: white;font-size:18px"
+                       href="/pe/realtones/confirmar-descarga?catalog=<?php echo $this->catalogo; ?>&descargar=true">ACEPTAR
+                    </a>
+                </div>
+            </div>
+        </td>
+    <?php } else { ?>
+        <form data-ajax="false" action="<?php echo $this->action; ?>"  method="post" Enctype="multipart/form-data">
+            <ul data-role="listview" data-inset="true">
+                <li>
+                    <button style="background-color: #FF6702;color:white" type="submit" ><i class='lIcon fa fa-check'></i>Aceptar</button>
+                    <!--data-inline='true'-->
+                    <div >
+                        <a href='http://m.entretenimiento.entel.pe/' style="background-color: #FF6702;color:white"  data-role='button' ><i class='lIcon fa fa-times'></i>Cancelar</a>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    <?php } ?>
+</div>

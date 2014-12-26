@@ -1,0 +1,4 @@
+2014-11-19,08:52:34,PERFIL:2,listarMenu,SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://174.121.234.90:8080/Services/WAPFulltracksService/FullTracksService.svc?wsdl' : failed to load external entity "http://174.121.234.90:8080/Services/WAPFulltracksService/FullTracksService.svc?wsdl"
+,
+2014-11-19,08:52:53,PERFIL:2,listarMenu,SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://174.121.234.90:8080/Services/WAPFulltracksService/FullTracksService.svc?wsdl' : failed to load external entity "http://174.121.234.90:8080/Services/WAPFulltracksService/FullTracksService.svc?wsdl"
+,

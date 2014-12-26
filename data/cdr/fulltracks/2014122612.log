@@ -1,0 +1,2 @@
+2014-12-26,12:45:45,PERFIL:2,estaSuscritoAFulltracks,SOAP-ERROR: Parsing Schema: can't import schema from 'http://174.121.234.90:8080/Services/WAPFulltracksService/FullTracksService.svc?xsd=xsd1',
+2014-12-26,12:53:24,PERFIL:2,estaSuscritoAFulltracks,SOAP-ERROR: Parsing Schema: can't import schema from 'http://174.121.234.90:8080/Services/WAPFulltracksService/FullTracksService.svc?xsd=xsd1',

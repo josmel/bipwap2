@@ -1,0 +1,103 @@
+<html ng-app="App">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ionic Infinite Scroll</title>
+   
+    <link href="http://code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet">
+    <script src="<?php echo STATIC_URL ?>js/ionic.bundle.js"></script>
+    <!--<script src="http://code.ionicframework.com/1.0.0-beta.13/js/ionic.bundle.js">-->
+    </script>
+    <script>
+    angular.module('App', ['ionic'])
+.controller('Ctrl', function ($scope, $http, $ionicPopup, $filter) {
+  
+  var page = 1;
+  $scope.commits = [];
+  $scope.more = true;
+  
+  $scope.loadGithubCommits = function () {
+    
+    // Load the data from the github api. 
+    $http.get('http://local.bipwap/fulltracks/proceso/json?page=' + page)
+    .success(function (commits, status, headers) {
+      
+      // Check Link header to determine if more pages are available.
+      // If not, disable infinite scroll.
+      if (headers('link').search('rel="next"') < 0) {
+        $scope.more = false;
+      }
+      
+      // Push all of the commits from response into model.
+      angular.forEach(commits, function (commit) {
+        $scope.commits.push(commit);
+      });
+    })
+    
+    .error (function (data, status, headers) {
+      
+      // Disable infinite scroll since we've got an error.
+      $scope.more = false;
+      
+      if (headers('x-ratelimit-remaining') == 0) {
+        
+        // Check if it is due to Github rate limiting.
+        var popup = $ionicPopup.alert({
+          title: 'You have exceeded GitHub\'s Rate Limit.',
+          template: 'Try again after ' + $filter('date')(parseInt(headers('x-ratelimit-reset')) * 1000, 'short')
+        });
+        
+      } else {
+        
+        // Otherwise show general alert.
+        $ionicPopup.alert({
+          title: 'GitHub did not respond.',
+          template: 'Please try again.'
+        });
+      }
+    })
+    
+    .finally(function () {
+      
+      // On finish, increment to next page and alert infiniteScroll to close.
+      page++;
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+  };
+})
+
+.filter('linkCommit', function () {
+  
+  return function (text) {
+    
+    // Replace any issue numbers with a link to the issue.
+    return text.replace(/\#(\d+)/gmi, "<a href=\"https://github.com\/driftyco\/ionic\/issues\/$1\">\#$1<\/a>")
+  };
+});
+    </script>
+  </head>
+
+  <body ng-controller="Ctrl">
+    <ion-pane ng-controller="Ctrl">
+
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Fulltracks</h1>
+      </ion-header-bar>
+      
+      <ion-content>
+        
+        <div class="list">
+          <div class="item" ng-repeat="commit in commits">
+            <h3 ng-bind-html="commit.commit.message | linkCommit"></h3>
+            <p>{{commit.commit.author.name}}, {{commit.commit.author.date | date:'short'}}</p>
+          </div>
+        </div>
+        
+        <!-- Infinite Scroll is activated here to load if more pages exist. -->
+        <ion-infinite-scroll on-infinite="loadGithubCommits()" ng-if="more"></ion-infinite-scroll>
+        
+      </ion-content>
+    </ion-pane>
+      
+  </body>
+</html>

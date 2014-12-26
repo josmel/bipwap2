@@ -1,0 +1,2 @@
+2014-11-20,16:56:37,PERFIL:2,listarMenu,SOAP-ERROR: Parsing WSDL: Couldn't find <definitions> in 'http://174.121.234.90:8080/Services/_Desarrollo/WAPDedicatoriasService/DedicatoriasService.svc',
+2014-11-20,16:58:29,PERFIL:2,listarMenu,SOAP-ERROR: Parsing WSDL: Couldn't find <definitions> in 'http://174.121.234.90:8080/Services/_Desarrollo/WAPDedicatoriasService/DedicatoriasService.svc',

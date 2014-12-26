@@ -1,0 +1,259 @@
+<link rel="stylesheet" type="text/css" href="http://www.jose-aguilar.com/scripts/jquery/slide-popup/style.css" />	
+<script type="text/javascript">
+function openDialog() {
+	$('#overlay').fadeIn('fast', function() {
+		$('#popup').css('display','block');
+        $('#popup').animate({'left':'5%'},100);
+    });
+}
+
+function closeDialog(id) {
+	$('#'+id).css('position','absolute');
+	$('#'+id).animate({'left':'-100%'}, 500, function() {
+		$('#'+id).css('position','fixed');
+		$('#'+id).css('left','100%');
+		$('#overlay').fadeOut('fast');
+	});
+}
+</script>
+<style>.popup {
+    background-color: #ffffff;
+    color: #888888;
+    height: 100%;
+    left: 100%;
+    /*padding: 20px;*/
+    /*position: fixed;*/
+    right: 10%;
+    top: 10%;
+    width: 80%;
+    z-index: 101;
+	/*border:5px solid #888888;*/
+	-moz-box-shadow: 0px 0px 10px 1px #888888;
+	-webkit-box-shadow: 0px 0px 10px 1px #888888;
+	box-shadow: 0px 0px 10px 1px #888888;
+	border-radius:10px;
+	-moz-border-radius:10px;
+}
+
+.overlay {
+    background: #000000;
+    bottom: 0;
+    left: 0;
+    /*position: fixed;*/
+    right: 0;
+    top: 0;
+    z-index: 100;
+	opacity:0.5;
+}
+
+</style>
+<div data-role="content"> 
+<!--<div id="overlay" class="overlay"></div>
+<div id="popup" class="popup">
+        <form>
+                <h3>Personaliza tu cuenta</h3>
+                <label for="un" class="ui-hidden-accessible">Nombre:</label>
+                <input name="user" id="un" value="" placeholder="Nombres" data-theme="a" type="text">
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <legend>Fecha de nacimiento, seleccione:</legend>
+                    <label for="select-h-6a">Select A</label>
+                    <select name="select-h-6a" id="select-h-6a">
+                        <option value="#">01</option>
+                        <option value="#">02</option>
+                        <option value="#">03</option>
+                        <option value="#">04</option>
+                        <option value="#">05</option>
+                        <option value="#">06</option>
+                    </select>
+                    <label for="select-h-6b">Select B</label>
+                    <select name="select-h-6b" id="select-h-6b">
+                        <option value="#">01</option>
+                        <option value="#">02</option>
+                        <option value="#">03</option>
+                        <option value="#">04</option>
+                        <option value="#">05</option>
+                        <option value="#">06</option>
+                    </select>
+                    <label for="select-h-6c">Select C</label>
+                    <select name="select-h-6c" id="select-h-6c">
+                        <option value="#">2012</option>
+                        <option value="#">2011</option>
+                        <option value="#">2010</option>
+                        <option value="#">2009</option>
+                        <option value="#">2008</option>
+                        <option value="#">2007</option>
+                    </select>
+                </fieldset>
+                <label>
+                    <input name="radio-choice-0" id="radio-choice-0a" type="radio">Masculino
+                </label>
+                <label for="radio-choice-0b">Femenino</label>
+                <input name="radio-choice-0" id="radio-choice-0b" class="custom" type="radio">
+                <div class="ui-field-contain">
+                    <label for="select-native-17">Departamento:</label>
+                    <select name="select-native-17" id="select-native-17">
+                        <option value="1">Lima</option>
+                        <option value="2">Junin</option>
+                        <option value="3" selected="selected">Ayacucho</option>
+                        <option value="4">Puno</option>
+                    </select>
+                    <label for="select-native-17">Provincia :</label>
+                    <select name="select-native-17" id="select-native-17">
+                        <option value="1">Orolla</option>
+                        <option value="2">Lima</option>
+                        <option value="3" selected="selected">Rioja</option>
+                        <option value="4">Loreto</option>
+                    </select>
+                </div>
+                <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Guardar</button>
+        </form>
+</div> -->
+    <a href="#popupLogin" data-rel="popup" data-position-to="window" data-transition="pop">Sign in</a>
+    <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+        <form>
+            <div style="padding:10px 20px;">
+                <h3>Personaliza tu cuenta</h3>
+                <label for="un" class="ui-hidden-accessible">Nombre:</label>
+                <input name="user" id="un" value="" placeholder="username" data-theme="a" type="text">
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <legend>Fecha de nacimiento, seleccione:</legend>
+                    <label for="select-h-6a">Select A</label>
+                    <select name="select-h-6a" id="select-h-6a">
+                        <option value="#">01</option>
+                        <option value="#">02</option>
+                        <option value="#">03</option>
+                        <option value="#">04</option>
+                        <option value="#">05</option>
+                        <option value="#">06</option>
+                    </select>
+                    <label for="select-h-6b">Select B</label>
+                    <select name="select-h-6b" id="select-h-6b">
+                        <option value="#">01</option>
+                        <option value="#">02</option>
+                        <option value="#">03</option>
+                        <option value="#">04</option>
+                        <option value="#">05</option>
+                        <option value="#">06</option>
+                    </select>
+                    <label for="select-h-6c">Select C</label>
+                    <select name="select-h-6c" id="select-h-6c">
+                        <option value="#">2012</option>
+                        <option value="#">2011</option>
+                        <option value="#">2010</option>
+                        <option value="#">2009</option>
+                        <option value="#">2008</option>
+                        <option value="#">2007</option>
+                    </select>
+                </fieldset>
+                <label>
+                    <input name="radio-choice-0" id="radio-choice-0a" type="radio">Masculino
+                </label>
+                <label for="radio-choice-0b">Femenino</label>
+                <input name="radio-choice-0" id="radio-choice-0b" class="custom" type="radio">
+                <div class="ui-field-contain">
+                    <label for="select-native-17">Departamento:</label>
+                    <select name="select-native-17" id="select-native-17">
+                        <option value="1">Lima</option>
+                        <option value="2">Junin</option>
+                        <option value="3" selected="selected">Ayacucho</option>
+                        <option value="4">Puno</option>
+                    </select>
+                    <label for="select-native-17">Provincia :</label>
+                    <select name="select-native-17" id="select-native-17">
+                        <option value="1">Orolla</option>
+                        <option value="2">Lima</option>
+                        <option value="3" selected="selected">Rioja</option>
+                        <option value="4">Loreto</option>
+                    </select>
+                </div>
+                <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Sign in</button>
+            </div>
+        </form>
+    </div>
+    <?php $this->getMesseger(); ?>
+    <div class='inset'>
+        <?php if (isset($this->mensaje) && $this->mensaje == '2') {
+            ?>
+            <div class='message success' style="background-color: orange">
+                <i class='fa fa-check' style="color: white"></i>
+                <p style="color: white">La Dedicatoria ha sido enviada correctamente</p>
+            </div>
+
+        <?php } elseif (isset($this->mensaje) && $this->mensaje == '1') {
+            ?>
+            <div class='message info' style="background-color: orange">
+                <i class='fa fa-lightbulb-o' style="color: white"></i>
+                <p style="color: white">Bienvenido al servicio DEDICATORIAS,elige la cancion que deseas enviar. ! Envia tu primera dedicatoria de REGALO!</p>
+            </div>
+        <?php }
+        ?>
+        <br>
+        <div> 
+            <img width="100%"   src="<?php echo STATIC_URL ?>css/jqueryMobile/banner_dedicatorias_nextel2.gif">
+        </div>
+        <!--        <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                    <li><a style="color:white;background-color: #FF6702;" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[0]->catalogo ?>">
+                            <img src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/1.jpg"  border="0" />
+                            <h2><?= strtoupper($this->SoapMusica[0]->tema) ?></h2>
+                            <p><?= $this->SoapMusica[0]->artista ?></p>
+                            <p class="ui-li-aside"><strong style="">S/.5.00</strong></p>
+                        </a>
+                    </li>
+                </ul>-->
+        <h2 style="color: black">Dedicatorias Destacadas</h2> 
+        <div class="ui-grid-b" >
+            <div class="ui-block-a" style="padding:0 2px 0 0;">
+                <div style="background-color: #FFFFFF;font-size: 0.5em;border-radius:0.5em">
+                    <a style="color:black" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[2]->catalogo ?>">
+                        <img width="100%"  src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/9.jpg"  border="0" />
+                        <h2 ><?= $this->SoapMusica[2]->tema ?></h2>
+                        <p ><?= $this->SoapMusica[2]->artista ?></p>
+                        <p  class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-block-b" style="padding:0 2px 0 2px">
+                <div style="background-color: #FFFFFF;font-size: 0.5em;border-radius:1em">
+                    <a style="color:black" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[0]->catalogo ?>">
+                        <img width="100%"src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/2.jpg"  border="0" />
+                        <h2 ><?= $this->SoapMusica[0]->tema ?></h2>
+                        <p ><?= $this->SoapMusica[0]->artista ?></p>
+                        <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-block-c" style="padding:0 0 0 2px">
+                <div style="background-color: #FFFFFF;font-size: 0.5em;border-radius:1em">
+                    <a style="color:black" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[6]->catalogo ?>">
+                        <img width="100%" src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/5.jpg"  border="0" />
+                        <h2 ><?= $this->SoapMusica[6]->tema ?></h2>
+                        <p ><?= $this->SoapMusica[6]->artista ?></p>
+                        <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h2 style="color: black">Top 10</h2> 
+        <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+            <?php
+            $i = 0;
+            foreach ($this->SoapMusica as $item):
+                $i++;
+                if ($i > 1 && $i <= 11) {
+                    ?>
+                    <li>
+                        <a href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $item->catalogo ?>">
+                            <img src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/<?= $i - 1 ?>.jpg"  border="0" />
+                            <h2><?= strtoupper($item->tema) ?></h2>
+                            <p><?= $item->artista ?></p>
+                            <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                        </a>
+                    </li>
+                    <p>
+                        <?php
+                    }
+                endforeach;
+                ?> 
+        </ul>
+    </div>
+</div>
